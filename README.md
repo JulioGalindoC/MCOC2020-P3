@@ -234,29 +234,28 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
 Condiciones de borde:
 
-    10° Inicial
+    5° Inicial
     
-    Borde Superior: 0°
+    Borde Superior: Gradiente 0
     
-    Borde Izquierdo: 20°
+    Borde Izquierdo: 25°
     
-    Borde Inferior: 20°
+    Borde Inferior: Gradiente 0
     
-    Borde Derecho: Gradiente 0
+    Borde Derecho: 25°
+
 
 Entonces:
 
-    u_k[:,:] = 10.     # 10 grados inicial en todas partes
+    u_k[:,-1] = u_k[:,-2] - 0*dy # Sup. gradiente 0
     
-    u_k[:,-1] = 0.  #Sup.
+    u_k[0,:] = 25.  #Izq.
     
-    u_k[0,:] = 20.  #Izq.
+    u_k[:,0] = u_k[:,1] - 0*dy # Inf. gradiente 0
     
-    u_k[:,0] = 20.  #Inf.
+    u_k[-1,:] = 25. #Der.
 
-    u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
-
-Como en el caso 4 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
+Como en el caso 5 solo tiene gradiente de temperatura para el borde superior e inferior, se eliminaron las filar respectivas a al gradiente derecho e izquierdo.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
