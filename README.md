@@ -246,7 +246,9 @@ Condiciones de borde:
 
 
 Entonces:
-
+    
+    u_k[:,:] = 5.     # 5 grados inicial en todas partes
+    
     u_k[:,-1] = u_k[:,-2] - 0*dy # Sup. gradiente 0
     
     u_k[0,:] = 25.  #Izq.
@@ -270,3 +272,86 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
  El gif animado con toda la evolución de temperatura para el caso 5 se presenta a continuación:
 
  ![GifCaso5](GifCaso5.gif)
+
+**CASO 6:**
+
+Condiciones de borde:
+
+    30° Inicial
+    
+    Borde Superior: Gradiente 0
+    
+    Borde Izquierdo: 10°
+    
+    Borde Inferior: Gradiente 0
+    
+    Borde Derecho: Gradiente 0
+
+Entonces:
+
+    u_k[:,:] = 30.     # 30 grados inicial en todas partes
+    
+    u_k[:,-1] = u_k[:,-2] - 0*dy # Sup. gradiente 0    
+    
+    u_k[0,:] = 10.  #Izq.
+
+    u_k[:,0] = u_k[:,1] - 0*dy # Inf. gradiente 0
+    
+    u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
+
+En este caso solo se elimina la fila respectivas a al gradiente izquierdo.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+ ![EvoluciónTempCaso6](EvoluciónTempCaso6.png)
+ 
+ El gif animado con toda la evolución de temperatura para el caso 5 se presenta a continuación:
+
+ ![GifCaso6](GifCaso6.gif)
+ 
+**CASO 7:**
+
+Condiciones de borde:
+
+    5° Inicial
+    
+    Borde Superior: Gradiente 0
+    
+    Borde Izquierdo: 25°
+    
+    Borde Inferior: Gradiente 0
+    
+    Borde Derecho: 25°
+
+
+Entonces:
+
+    u_k[:,-1] = u_k[:,-2] - 0*dy # Sup. gradiente 0
+    
+    u_k[0,:] = 25.  #Izq.
+    
+    u_k[:,0] = u_k[:,1] - 0*dy # Inf. gradiente 0
+    
+    u_k[-1,:] = 25. #Der.
+
+Como en el caso 5 solo tiene gradiente de temperatura para el borde superior e inferior, se eliminaron las filar respectivas a al gradiente derecho e izquierdo.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+ ![EvoluciónTempCaso7](EvoluciónTempCaso7.png)
+ 
+ El gif animado con toda la evolución de temperatura para el caso 5 se presenta a continuación:
+
+ ![GifCaso7](GifCaso7.gif)
