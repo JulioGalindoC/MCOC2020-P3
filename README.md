@@ -358,3 +358,12 @@ El grafico de temperaturas para estas condiciones de borde en los puntos
  El gif animado con toda la evolución de temperatura para el caso 7 se presenta a continuación:
 
  ![GifCaso7](GifCaso7.gif)
+ 
+ 
+## CAMBIO AL CASO 3-D:
+
+Para realizarelcambio a tres dimensiones es necesario tener 2 variables más para las condiciones de borde "normales" y dos valiables más para las condiciones de borde derivadas
+
+Es facil darse cuenta de esto ya que al pasar de 1-D a 2-D se tuvieron que aumentar las variables para el borde inferior y el borde superior, ahora al pasar a 3-D se tendrán que agragar las variable para la profundidad. Se aumentarán las variables para el borde cercano (cara cercana) y para el borde profundo (cara profunda).
+
+Las condiciones se seguirán imponiendo de la misma forma que lo hemos hecho hasta ahora.
