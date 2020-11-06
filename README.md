@@ -52,3 +52,30 @@ u_k[:,0] = u_k[:,1] - (GRADIENTE T INFERIOR) * dy
 u_k[:,-1] = u_k[:,-2] - (GRADIENTE T SUPERIOR) * dy
 
 
+* CASO 1:
+
+Condiciones de borde:
+
+    20° Inicial
+    
+    Borde Superior: 0°
+    
+    Borde Izquierdo: 20°
+    
+    Borde Inferior: 20°
+    
+    Borde Derecho: 0°
+    
+Entonces:
+
+    u_k[:,:] = 20.     # 20 grados inicial en todas partes
+    
+    u_k[:,-1] = 0.  #Sup.
+    
+    u_k[0,:] = 20.  #Izq.
+    
+    u_k[:,0] = 20.  #Inf.
+    
+    u_k[-1,:] = 0   #Der.
+    
+Como en el caso 1 no hay gradientes de temperatura, se eliminaron las filar respectivas a los gradientes.
