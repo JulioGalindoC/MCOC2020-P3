@@ -27,3 +27,28 @@ Se realizo el gráfico con un paso de integración dt = 2s y curvas de evolució
 Al analizar el gráfico se puede ver como al final la solución converge ya que las últimas curvas son rectas practicamente estables.
 
 Las condiciones de borde natural de el tipo estudiado hasta ahora, pueden ser utilizadas cuando se tiene continuidad de piezas de hormigón, es decir cando se tiene una piexa con ciertas temperaturas adyacente a otra con temperaturas distintas. De esta forma se evitará tener un salto en las temperaturas ya que las tangemtes coincidiran.  
+
+CASOS 2-D PARA VERIFICAR:
+
+Las conciones de borde para el caso 2D son de la forma:
+
+u_k[:,:] = TEMPERATURA INICIAL EN TODAS PARTES
+
+u_k[0,:] = TEMPERATURA IZQUIERDA
+
+u_k[-1,:] =  TEMPERATURA DERECHA
+
+u_k[:,0] =  TEMPERATURA INFERIOR
+
+u_k[:,-1] = TEMPERTURA SUPERIOR
+
+
+u_k[0,:] = u_k[1,:] - (GRADIENTE T IZQUIERA) * dx
+
+u_k[-1,:] = u_k[-2,:] - (GRADIENTE T DERECHA) * dx
+
+u_k[:,0] = u_k[:,1] - (GRADIENTE T INFERIOR) * dy
+
+u_k[:,-1] = u_k[:,-2] - (GRADIENTE T SUPERIOR) * dy
+
+
