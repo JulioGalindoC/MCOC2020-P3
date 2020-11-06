@@ -93,6 +93,10 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
  ![EvoluciónTempCaso1](EvoluciónTempCaso1.png)
 
+El gif animado con toda la evolución de temperatura para el caso 1 se presenta a continuación:
+
+ ![GifTempCaso1](GifTempCaso1.png)
+
 **CASO 2:**
 
 Condiciones de borde:
@@ -106,4 +110,25 @@ Condiciones de borde:
     Borde Inferior: 20°
     
     Borde Derecho: Gradiente 0
+
+Entonces:
+
+    u_k[0,:] = 20.  #Izq.
     
+    u_k[:,0] = 20.  #Inf.
+    
+    u_k[:,-1] = 0.  #Sup.
+
+    u_k[-1,:] = u_k[-2,:] - 10*dx # Der. gradiente - 10
+
+Como en el caso 2 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+ ![EvoluciónTempCaso2](EvoluciónTempCaso2.png)
