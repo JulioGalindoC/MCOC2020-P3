@@ -53,7 +53,7 @@ u_k[:,0] = u_k[:,1] - (GRADIENTE T INFERIOR) * dy
 
 u_k[:,-1] = u_k[:,-2] - (GRADIENTE T SUPERIOR) * dy
 
-
+Dependiendo de lo especificado para cada caso se asignaron valores a las variables anteriores o en caso de no tener valor, las variables se eliminaron.
 
 **CASO 1:**
 
@@ -81,7 +81,7 @@ Entonces:
     
     u_k[-1,:] = 0   #Der.
     
-Como en el caso 1 no hay gradientes de temperatura, se eliminaron las filar respectivas a los gradientes.
+Se eliminaron las filar respectivas a los gradientes.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -123,7 +123,7 @@ Entonces:
     
     u_k[-1,:] = u_k[-2,:] - 10*dx # Der. gradiente - 10
 
-Como en el caso 2 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
+Se eliminaron las filar respectivas al gradiente superior, izquierdo e inferior y al lado derecho.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -158,7 +158,6 @@ Entonces:
 
     u_k[:,:] = 10.     # 10 grados inicial en todas partes
     
-    
     u_k[:,-1] = 0.  #Sup.
     
     u_k[0,:] = 20.  #Izq.
@@ -167,7 +166,7 @@ Entonces:
     
     u_k[-1,:] = 20   #Der.
 
-Como en el caso 3 no hay gradientes de temperatura, se eliminaron las filar respectivas a los gradientes.
+Se eliminaron las filar respectivas a los gradientes.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -183,10 +182,9 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
  ![GifCaso3](GifCaso3.gif)
 
-
 **CASO 4:**
 
-El caso 4, a diferencia de los anteriores, también cambia de dimenciones. En el eje x tiene un largo de 0.5 metros, es por esto que en la linea 7 del codigo hay que fijar la variable b = 0.5. Así mismo hay que realizar un cambio en la primera linea de la función imshowbien la lienea debe ser :
+El caso 4, a diferencia de los anteriores, también cambia de dimensiones. En el eje x tiene un largo de 0.5 metros, es por esto que en la linea 7 del codigo hay que fijar la variable b = 0.5. Así mismo hay que realizar un cambio en la primera linea de la función imshowbien la linea debe ser:
     
     imshow(u.T[Ny::-1,:],cmap=cm.coolwarm,interpolation='bilinear')
 
@@ -214,7 +212,7 @@ Entonces:
 
     u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
 
-Como en el caso 4 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
+Se eliminaron las filar respectivas al gradiente superior, izquierdo e inferior y al lado derecho.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -257,7 +255,7 @@ Entonces:
     
     u_k[-1,:] = 25. #Der.
 
-Como en el caso 5 solo tiene gradiente de temperatura para el borde superior e inferior, se eliminaron las filar respectivas a al gradiente derecho e izquierdo.
+Se eliminaron las filar respectivas a al gradiente derecho e izquierdo así como también el lado superior e inferior.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -299,7 +297,7 @@ Entonces:
     
     u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
 
-En este caso solo se elimina la fila respectivas a al gradiente izquierdo.
+En este caso se eliminaron todas las filas respectivas a las temperatiras de los lados menos la izquierda y solo se elimina la fila respectivas a al gradiente izquierdo.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -317,30 +315,35 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
  
 **CASO 7:**
 
+Parael caso 7 se debe agregar las lineas numero 107 y 125 que son identicas:
+
+    u_ambiente = 20. + 10*sin((2*pi/T)*t)
+
 Condiciones de borde:
 
-    5° Inicial
+    20° Inicial
     
-    Borde Superior: Gradiente 0
+    Borde Superior: Temperatura ambiental (sinusoide con variación de 10°, período de 1 día)
     
-    Borde Izquierdo: 25°
+    Borde Izquierdo: Gradiente 0
     
     Borde Inferior: Gradiente 0
     
-    Borde Derecho: 25°
-
+    Borde Derecho: Gradiente 0
 
 Entonces:
 
-    u_k[:,-1] = u_k[:,-2] - 0*dy # Sup. gradiente 0
+    u_ambiente = 20. + 10*sin((2*pi/T)*t)
     
-    u_k[0,:] = 25.  #Izq.
+    u_k[:,-1] = u_ambiente  #Sup.
+
+    u_k[0,:] = u_k[1,:] - 0*dx # Izq. gradiente 0
     
     u_k[:,0] = u_k[:,1] - 0*dy # Inf. gradiente 0
     
-    u_k[-1,:] = 25. #Der.
+    u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
 
-Como en el caso 5 solo tiene gradiente de temperatura para el borde superior e inferior, se eliminaron las filar respectivas a al gradiente derecho e izquierdo.
+Como en el caso 7 solo tiene gradiente de temperatura para el borde superior e inferior, se eliminaron las filar respectivas a al gradiente derecho e izquierdo y todas las temperaturas a excepción de la superior.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
