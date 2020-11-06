@@ -91,6 +91,7 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
 * P3 (3𝑎/4,3𝑏/4)
 
+![EvoluciónTempCaso1](EvoluciónTempCaso1.png)
 
 **CASO 2:**
 
