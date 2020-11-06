@@ -95,7 +95,7 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
 El gif animado con toda la evolución de temperatura para el caso 1 se presenta a continuación:
 
- ![GifTempCaso1](GifTempCaso1.png)
+ ![GifCaso1](GifCaso1.gif)
 
 **CASO 2:**
 
@@ -113,12 +113,14 @@ Condiciones de borde:
 
 Entonces:
 
+    u_k[:,:] = 20.     # 20 grados inicial en todas partes
+    
+    u_k[:,-1] = 0.  #Sup.
+    
     u_k[0,:] = 20.  #Izq.
     
     u_k[:,0] = 20.  #Inf.
     
-    u_k[:,-1] = 0.  #Sup.
-
     u_k[-1,:] = u_k[-2,:] - 10*dx # Der. gradiente - 10
 
 Como en el caso 2 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
@@ -132,3 +134,140 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 * P3 (3𝑎/4,3𝑏/4)
 
  ![EvoluciónTempCaso2](EvoluciónTempCaso2.png)
+ 
+ El gif animado con toda la evolución de temperatura para el caso 2 se presenta a continuación:
+
+ ![GifCaso2](GifCaso2.gif)
+
+**CASO 3:**
+
+Condiciones de borde:
+
+    10° Inicial
+    
+    Borde Superior: 0°
+    
+    Borde Izquierdo: 20°
+    
+    Borde Inferior: 20°
+    
+    Borde Derecho: 20°
+
+
+Entonces:
+
+    u_k[:,:] = 10.     # 10 grados inicial en todas partes
+    
+    
+    u_k[:,-1] = 0.  #Sup.
+    
+    u_k[0,:] = 20.  #Izq.
+    
+    u_k[:,0] = 20.  #Inf.
+    
+    u_k[-1,:] = 20   #Der.
+
+Como en el caso 3 no hay gradientes de temperatura, se eliminaron las filar respectivas a los gradientes.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+ ![EvoluciónTempCaso3](EvoluciónTempCaso3.png)
+ 
+ El gif animado con toda la evolución de temperatura para el caso 3 se presenta a continuación:
+
+ ![GifCaso3](GifCaso3.gif)
+
+
+**CASO 4:**
+
+El caso 4, a diferencia de los anteriores, también cambia de dimenciones. En el eje x tiene un largo de 0.5 metros, es por esto que en la linea 7 del codigo hay que fijar la variable b = 0.5. Así mismo hay que realizar un cambio en la primera linea de la función imshowbien la lienea debe ser :
+    
+    imshow(u.T[Ny::-1,:],cmap=cm.coolwarm,interpolation='bilinear')
+
+Condiciones de borde:
+
+    10° Inicial
+    
+    Borde Superior: 0°
+    
+    Borde Izquierdo: 20°
+    
+    Borde Inferior: 20°
+    
+    Borde Derecho: Gradiente 0
+
+Entonces:
+
+    u_k[:,:] = 10.     # 10 grados inicial en todas partes
+    
+    u_k[:,-1] = 0.  #Sup.
+    
+    u_k[0,:] = 20.  #Izq.
+    
+    u_k[:,0] = 20.  #Inf.
+
+    u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
+
+Como en el caso 4 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+ ![EvoluciónTempCaso4](EvoluciónTempCaso4.png)
+ 
+ El gif animado con toda la evolución de temperatura para el caso 4 se presenta a continuación:
+
+ ![GifCaso4](GifCaso4.gif)
+ 
+**CASO 5:**
+
+Condiciones de borde:
+
+    10° Inicial
+    
+    Borde Superior: 0°
+    
+    Borde Izquierdo: 20°
+    
+    Borde Inferior: 20°
+    
+    Borde Derecho: Gradiente 0
+
+Entonces:
+
+    u_k[:,:] = 10.     # 10 grados inicial en todas partes
+    
+    u_k[:,-1] = 0.  #Sup.
+    
+    u_k[0,:] = 20.  #Izq.
+    
+    u_k[:,0] = 20.  #Inf.
+
+    u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
+
+Como en el caso 4 solo tiene gradiente de temperatura para el borde derecho, se eliminaron las filar respectivas a los otros gradientes.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+ ![EvoluciónTempCaso5](EvoluciónTempCaso5.png)
+ 
+ El gif animado con toda la evolución de temperatura para el caso 5 se presenta a continuación:
+
+ ![GifCaso5](GifCaso5.gif)
