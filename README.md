@@ -1,6 +1,6 @@
 # MCOC2020-P3
 
-CONDICIONES DE BORDE NATURALES AL CASO 1-D:
+## CONDICIONES DE BORDE NATURALES AL CASO 1-D:
 
 Para obtener la condición de borde natural en el lado izquierdo, se aplico la siguiente condicion de borde:
 
@@ -28,7 +28,9 @@ Al analizar el gráfico se puede ver como al final la solución converge ya que 
 
 Las condiciones de borde natural de el tipo estudiado hasta ahora, pueden ser utilizadas cuando se tiene continuidad de piezas de hormigón, es decir cando se tiene una piexa con ciertas temperaturas adyacente a otra con temperaturas distintas. De esta forma se evitará tener un salto en las temperaturas ya que las tangemtes coincidiran.  
 
-CASOS 2-D PARA VERIFICAR:
+
+
+## CASOS 2-D PARA VERIFICAR:
 
 Las conciones de borde para el caso 2D son de la forma:
 
@@ -52,7 +54,8 @@ u_k[:,0] = u_k[:,1] - (GRADIENTE T INFERIOR) * dy
 u_k[:,-1] = u_k[:,-2] - (GRADIENTE T SUPERIOR) * dy
 
 
-* CASO 1:
+
+**CASO 1:**
 
 Condiciones de borde:
 
@@ -79,3 +82,27 @@ Entonces:
     u_k[-1,:] = 0   #Der.
     
 Como en el caso 1 no hay gradientes de temperatura, se eliminaron las filar respectivas a los gradientes.
+
+El grafico de temperaturas para estas conciciones de borde en los puntos
+
+* P1 (𝑎/2,𝑏/2)
+
+* P2 (𝑎/2,3𝑏/4)
+
+* P3 (3𝑎/4,3𝑏/4)
+
+
+**CASO 2:**
+
+Condiciones de borde:
+
+    20° Inicial
+    
+    Borde Superior: 0°
+    
+    Borde Izquierdo: 20°
+    
+    Borde Inferior: 20°
+    
+    Borde Derecho: Gradiente 0
+    
