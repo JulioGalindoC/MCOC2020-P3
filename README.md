@@ -2,11 +2,11 @@
 
 ## CONDICIONES DE BORDE NATURALES AL CASO 1-D:
 
-Para obtener la condición de borde natural en el lado izquierdo, se aplico la siguiente condicion de borde:
+Para obtener la condición de borde natural en el lado izquierdo, se aplico la siguiente condición de borde:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{\partial&space;}{\partial&space;x}\left(t,0\right)=&space;5" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\frac{\partial&space;}{\partial&space;x}\left(t,0\right)=&space;5" title="\frac{\partial }{\partial x}\left(t,0\right)= 5" /></a>
 
-Aproximando la condición de borde por medio de sus diferencias finitas de primer orden para el tiempo constante, fijandonos en el puesto 0 y comparandolo con el puesto 1:
+Aproximando la condición de borde por medio de sus diferencias finitas de primer orden para el tiempo constante, fijándonos en el puesto 0 y comparándolo con el puesto 1:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{\partial&space;}{\partial&space;x}\left(t,0\right)\approx&space;\frac{u\left&space;[&space;k,1&space;\right&space;]-u\left&space;[&space;k,0&space;\right&space;]}{dx}=&space;5" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\frac{\partial&space;}{\partial&space;x}\left(t,0\right)\approx&space;\frac{u\left&space;[&space;k,1&space;\right&space;]-u\left&space;[&space;k,0&space;\right&space;]}{dx}=&space;5" title="\frac{\partial }{\partial x}\left(t,0\right)\approx \frac{u\left [ k,1 \right ]-u\left [ k,0 \right ]}{dx}= 5" /></a>
 
@@ -16,23 +16,23 @@ Al reordenar la ecuación:
 
 De esta forma obtenemos un nuevo stencil de diferencias finitas (pequeño) que nos permite completar el valor faltante.
 
-Despues de agregar la linea anterior al codigo y usando los mismos parámetros de los ejemplos de clases. Para el caso de la siguiente imagen: 
+Después de agregar la línea anterior al código y usando los mismos parámetros de los ejemplos de clases. Para el caso de la siguiente imagen: 
 
  ![Problema](ProblemaE3.png)
 
-Se realizo el gráfico con un paso de integración dt = 2s y curvas de evolución térmica cada 1000 pasos hasta llegar a 50000 pasos. Los resultados se presenta a continuación:
+Se realizo el gráfico con un paso de integración dt = 2s y curvas de evolución térmica cada 1000 pasos hasta llegar a 50000 pasos. Los resultados se presentan a continuación:
 
  ![Grafico](Grafico_E3_Evolución_Termica.png)
 
-Al analizar el gráfico se puede ver como al final la solución converge ya que las últimas curvas son rectas practicamente estables.
+Al analizar el gráfico se puede ver como al final la solución converge ya que las últimas curvas son rectas prácticamente estables.
 
-Las condiciones de borde natural de el tipo estudiado hasta ahora, pueden ser utilizadas cuando se tiene continuidad de piezas de hormigón, es decir cando se tiene una piexa con ciertas temperaturas adyacente a otra con temperaturas distintas. De esta forma se evitará tener un salto en las temperaturas ya que las tangemtes coincidiran.  
+Las condiciones de borde natural de el tipo estudiado hasta ahora, pueden ser utilizadas cuando se tiene continuidad de piezas de hormigón, es decir cando se tiene una pieza con ciertas temperaturas adyacente a otra con temperaturas distintas. De esta forma se evitará tener un salto en las temperaturas ya que las tangentes coincidirán.  
 
 
 
 ## CASOS 2-D PARA VERIFICAR:
 
-Las conciones de borde para el caso 2D son de la forma:
+Las condiciones de borde para el caso 2D son de la forma:
 
 u_k[:,:] = TEMPERATURA INICIAL EN TODAS PARTES
 
@@ -83,7 +83,7 @@ Entonces:
     
 Se eliminaron las filar respectivas a los gradientes.
 
-El grafico de temperaturas para estas conciciones de borde en los puntos
+El grafico de temperaturas para estas condiciones de borde en los puntos
 
 * P1 (𝑎/2,𝑏/2)
 
@@ -125,7 +125,7 @@ Entonces:
 
 Se eliminaron las filar respectivas al gradiente superior, izquierdo e inferior y al lado derecho.
 
-El grafico de temperaturas para estas conciciones de borde en los puntos
+El grafico de temperaturas para estas condiciones de borde en los puntos
 
 * P1 (𝑎/2,𝑏/2)
 
@@ -168,7 +168,7 @@ Entonces:
 
 Se eliminaron las filar respectivas a los gradientes.
 
-El grafico de temperaturas para estas conciciones de borde en los puntos
+El grafico de temperaturas para estas condiciones de borde en los puntos
 
 * P1 (𝑎/2,𝑏/2)
 
@@ -184,7 +184,7 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
 **CASO 4:**
 
-El caso 4, a diferencia de los anteriores, también cambia de dimensiones. En el eje x tiene un largo de 0.5 metros, es por esto que en la linea 7 del codigo hay que fijar la variable b = 0.5. Así mismo hay que realizar un cambio en la primera linea de la función imshowbien la linea debe ser:
+El caso 4, a diferencia de los anteriores, también cambia de dimensiones. En el eje x tiene un largo de 0.5 metros, es por esto que en la línea 7 del código hay que fijar la variable b = 0.5. Así mismo hay que realizar un cambio en la primera línea de la función imshowbien la línea debe ser:
     
     imshow(u.T[Ny::-1,:],cmap=cm.coolwarm,interpolation='bilinear')
 
@@ -214,7 +214,7 @@ Entonces:
 
 Se eliminaron las filar respectivas al gradiente superior, izquierdo e inferior y al lado derecho.
 
-El grafico de temperaturas para estas conciciones de borde en los puntos
+El grafico de temperaturas para estas condiciones de borde en los puntos
 
 * P1 (𝑎/2,𝑏/2)
 
@@ -255,9 +255,9 @@ Entonces:
     
     u_k[-1,:] = 25. #Der.
 
-Se eliminaron las filar respectivas a al gradiente derecho e izquierdo así como también el lado superior e inferior.
+Se eliminaron las filar respectivas a al gradiente derecho e izquierdo, así como también el lado superior e inferior.
 
-El grafico de temperaturas para estas conciciones de borde en los puntos
+El grafico de temperaturas para estas condiciones de borde en los puntos
 
 * P1 (𝑎/2,𝑏/2)
 
@@ -297,7 +297,7 @@ Entonces:
     
     u_k[-1,:] = u_k[-2,:] - 0*dx # Der. gradiente 0
 
-En este caso se eliminaron todas las filas respectivas a las temperatiras de los lados menos la izquierda y solo se elimina la fila respectivas a al gradiente izquierdo.
+En este caso se eliminaron todas las filas respectivas a las temperaturas de los lados menos la izquierda y solo se elimina la fila respectiva a al gradiente izquierdo.
 
 El grafico de temperaturas para estas conciciones de borde en los puntos
 
@@ -315,7 +315,7 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
  
 **CASO 7:**
 
-Parael caso 7 se debe agregar las lineas numero 107 y 125 que son identicas:
+Para el caso 7 se debe agregar las líneas número 107 y 125 que son idénticas:
 
     u_ambiente = 20. + 10*sin((2*pi/T)*t)
 
@@ -345,7 +345,7 @@ Entonces:
 
 Como en el caso 7 solo tiene gradiente de temperatura para el borde superior e inferior, se eliminaron las filar respectivas a al gradiente derecho e izquierdo y todas las temperaturas a excepción de la superior.
 
-El grafico de temperaturas para estas conciciones de borde en los puntos
+El grafico de temperaturas para estas condiciones de borde en los puntos
 
 * P1 (𝑎/2,𝑏/2)
 
@@ -355,6 +355,6 @@ El grafico de temperaturas para estas conciciones de borde en los puntos
 
  ![EvoluciónTempCaso7](EvoluciónTempCaso7.png)
  
- El gif animado con toda la evolución de temperatura para el caso 5 se presenta a continuación:
+ El gif animado con toda la evolución de temperatura para el caso 7 se presenta a continuación:
 
  ![GifCaso7](GifCaso7.gif)
